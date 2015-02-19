@@ -1,1 +1,1 @@
-30 * * * * /usr/local/bin/terminal-notifier -title "30 minutes have passed..." -message "Generally not a good thing to be blind."
+30 * * * * /usr/local/bin/terminal-notifier -title "+= 30" -message ""
