@@ -18,6 +18,7 @@ alias less='less -FSRXc'
 alias wget='wget -c'
 alias top='htop'
 alias bitrate='mp3info -r a -p "File: %f ¯\\\_(ツ)_/¯ Bitrate: %r\n"'
+alias history='fc -lfd 1'
 
 green='\033[0;32m'
 no_color='\033[0m'
@@ -30,10 +31,10 @@ nap () {
 
 pdfify () {
 	for i in $@; do
-		name=$i
-		location=../pdf/${name:0:-3}.pdf
+		name=$(basename $i)
+		location=~/notes/pdf/${name:0:-3}.pdf
 		echo -e "${green}pdfifying:${no_color}" $location
-		pandoc -f markdown_github+tex_math_dollars -t latex -s --mathjax -V geometry:twocolumn,margin=0.8in -o $location $i
+		pandoc -f markdown_github+tex_math_dollars -t latex -s --mathjax -V geometry:margin=0.6in -o $location $i
 		open $location
 	done
   emoji-clock
@@ -42,4 +43,10 @@ pdfify () {
 cl () {
 	cd $1
 	l .
+}
+
+sgit () {
+	git add --all
+	git commit -am $1
+	git push origin master
 }
