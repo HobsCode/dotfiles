@@ -1,2 +1,9 @@
 30 * * * * /usr/local/bin/terminal-notifier -title "+= 60" -message ""
-0 7 * * * open http://news.ycombinator.com http://twitter.com http://reddit.com http://facebook.com http://pitchfork.com http://nyt.com
+0 9 * * * open http://nyt.com
+0 9 * * 0 open http://http://www.reddit.com/r/ableton+logic_studio+abletonlive+AdvancedProduction+audioengineering+edmproduction+futurebeatproducers+musicbattlestations+wearethemusicmakers+musicinthemaking+isolatedvocals/top/?sort=top&t=week http://pitchfork.com 
+0 9 * * 1 open http://www.reddit.com/r/weightlifting+tdcs+mdma+supplements+fitness+psychonaut/top/?sort=top&t=week
+0 9 * * 2 open http://www.reddit.com/r/ambient+shoegaze+postrock+listentothis+spotify+electronicmusic+vaporwave/top/?sort=top&t=week
+0 9 * * 3 open http://www.reddit.com/r/glitch_art+minimalism/top/?sort=top&t=week http://xkcd.com http://smbc-comics.com
+0 9 * * 4 open http://www.reddit.com/r/golang+chrome+futurology+linux+space+startups+tedtalks+tdcs+ted/top/?sort=top&t=week http://news.ycombinator.com
+0 9 * * 5 open http://www.reddit.com/r/zenhabits+conlangs+obscuremedia+privatestudyrooms/top/?sort=top&t=week 
+0 9 * * 6 open http://www.reddit.com/r/HailCorporate+privacy+BasicIncome+PoliticalDiscussion+postnationalist+anarchism+changemyview/top/?sort=top&t=week

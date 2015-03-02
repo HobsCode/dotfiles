@@ -19,9 +19,25 @@ alias wget='wget -c'
 alias top='htop'
 alias bitrate='mp3info -r a -p "File: %f ¯\\\_(ツ)_/¯ Bitrate: %r\n"'
 alias history='fc -lfd 1'
+alias ca='gcalcli quick --calendar=jmaris@stanford.edu'
+alias diff='colordiff'
 
 green='\033[0;32m'
 no_color='\033[0m'
+
+moon (){ 
+	if [ $1 = "--waning" ] ; then 
+		uri="spotify:user:mackjaris:playlist:25wZ1fRWCXgtOb6VMgMw7r"
+	elif [ $1 = "--full" ] ; then 
+		uri="spotify:user:mackjaris:playlist:0MvdJy0TiVA7ep0iMSW8tP"
+	elif [ $1 = "--waxing" ] ; then
+		uri="spotify:user:mackjaris:playlist:4ajujsodGGHmQo2hqFGvks"
+	elif [ $1 = "--new" ] ; then
+		uri="spotify:user:mackjaris:playlist:38r3eUWeTE3HfcGQhEgVha"
+	fi
+	osascript -e "tell application \"Spotify\" to play track \"$uri\""
+}
+
 
 nap () {
   sleep $((60*$1))
@@ -30,13 +46,14 @@ nap () {
 }
 
 pdfify () {
-	for i in $@; do
-		name=$(basename $i)
-		location=~/notes/pdf/${name:0:-3}.pdf
-		echo -e "${green}pdfifying:${no_color}" $location
-		pandoc -f markdown_github+tex_math_dollars -t latex -s --mathjax -V geometry:margin=0.6in -o $location $i
-		open $location
-	done
+	start_dir=$(pwd)
+	cd $1
+	folder_name=$(basename $1)
+	location=~/notes/pdf/$folder_name.pdf
+	echo -e "${green}pdfifying:${no_color}" $folder_name
+	pandoc --toc -N --toc-depth=2 -f markdown_github+tex_math_dollars -t latex -s --mathjax --chapters --template=../tex/template.tex -V geometry:margin=0.75in -o $location *.md
+	open $location
+	cd $start_dir
   emoji-clock
 }
 
@@ -50,3 +67,4 @@ sgit () {
 	git commit -am $1
 	git push origin master
 }
+
